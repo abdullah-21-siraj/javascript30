@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <style>
+      .clock-container {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .clock {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        border: 2px solid #333;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #f0f0f0;
+      }
+
+      .clock div {
+        font-weight: bold;
+        font-size: 24px;
+        color: #333;
+        margin: 0 10px;
+      }
+
+      .seconds {
+        font-size: 28px;
+        margin-top: 10px;
+      }
+
+      .time {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+    </style>
+
+    <div class="clock-container">
+      <div class="time">Time</div>
+      <div class="clock">
+        <div class="hours"></div>
+        <div class="minutes"></div>
+        <div class="seconds"></div>
+      </div>
+    </div>
+
+    <script>
+      const hours = document.querySelector(".hours");
+      const minutes = document.querySelector(".minutes");
+      const seconds = document.querySelector(".seconds");
+
+      function setDate() {
+        var currentDate = new Date();
+
+        var currentMinute = currentDate.getMinutes();
+
+        var currentHour = currentDate.getHours();
+
+        var currentSecond = currentDate.getSeconds();
+
+        setInterval(setDate, 1000);
+
+        hours.textContent = currentHour + "hr";
+        minutes.textContent = currentMinute + "min";
+        seconds.textContent = currentSecond + "sec";
+      }
+
+      setDate();
+    </script>
+  </body>
+</html>
